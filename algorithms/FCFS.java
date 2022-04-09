@@ -10,7 +10,8 @@ public class FCFS extends SchedulingAlgorithm {
     @Override
 
     public void handleQueries(ArrayList<Query> queries) {
-        super.handleQueries(queries);
+        algorithmName = "FCFS";
+        setQueries(queries);
         System.out.println("FCFS:");
         queries.sort(new QueryAppearanceTimeComparator());
 
@@ -21,6 +22,5 @@ public class FCFS extends SchedulingAlgorithm {
                 handleQuery(query);
             }else disk.setTime(disk.getTime() + 1);
         }
-        System.out.println(disk.getHeadMovements());
     }
 }

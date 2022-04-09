@@ -4,11 +4,16 @@ public class Query {
     private int location;
     private int deadline;
     private int appearanceTime;
+    private boolean realTime;
 
-    public Query(int location, int deadline, int appearanceTime) {
+    public Query(int location, int deadline, int appearanceTime, boolean realTime) {
         this.location = location;
         this.deadline = deadline;
         this.appearanceTime = appearanceTime;
+        if(!realTime){
+            this.deadline = -1;
+        }
+        this.realTime = realTime;
     }
 
     public int getLocation() {
@@ -35,6 +40,15 @@ public class Query {
         return appearanceTime == query.appearanceTime;
     }
 
+
+    public boolean isRealTime() {
+        return realTime;
+    }
+
+    public void setAppearanceTime(int appearanceTime) {
+        this.appearanceTime = appearanceTime;
+    }
+
     @Override
     public int hashCode() {
         int result = location;
@@ -49,6 +63,7 @@ public class Query {
                 "location=" + location +
                 ", deadline=" + deadline +
                 ", appearanceTime=" + appearanceTime +
+                ", realTime=" + realTime +
                 '}';
     }
 }
